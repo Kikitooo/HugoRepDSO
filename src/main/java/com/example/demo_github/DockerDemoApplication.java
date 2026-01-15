@@ -12,12 +12,12 @@ public class DockerDemoApplication {
         SpringApplication.run(DockerDemoApplication.class, args);
     }
 
-    @RestController
-    class HelloController {
+}
 
-        @GetMapping("/")
-        public String hello() {
-            return "Hello, World!";
-        }
+@RestController
+class HelloWorldController {
+    @GetMapping("/")
+    public String seyHello() {
+        return "Hello, World !";
     }
 }
