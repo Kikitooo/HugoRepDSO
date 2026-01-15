@@ -1,14 +1,21 @@
-# Image de base Java 17 (match GitHub Actions)
+# Utilise une image base avec Java
+
 FROM eclipse-temurin:17-jdk
+ 
+# Définir le répertoire de travail dans le conteneur
 
-# Répertoire de travail
 WORKDIR /app
+ 
+# Copier le fichier JAR généré dans le conteneur
 
-# Copie TOUS les JAR de target et renomme en app.jar
-COPY target/*.jar app.jar
+COPY target/demo-github-0.0.1-SNAPSHOT.jar app.jar
+ 
+# Exposer le port sur lequel Spring Boot écoute
 
-# Expose port Spring Boot
 EXPOSE 8080
+ 
+# Commande pour lancer l'application Spring Boot
 
-# Lance l'app (nom fixe = app.jar)
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
+ 
